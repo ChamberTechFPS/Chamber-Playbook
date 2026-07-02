@@ -1,0 +1,67 @@
+title: Power Plan
+actions:
+  - !status: {status: 'Configuring Chamber power plan'}
+
+  - !cmd:
+      command: 'powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61 11111111-1111-1111-1111-111111111111'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg /setactive 11111111-1111-1111-1111-111111111111'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg /delete 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg /delete 381b4222-f694-41f0-9685-ff5bb260df2e'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg /delete a1841308-3541-4fab-bc81-f71556f20b4a'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg -h off'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg -change -disk-timeout-dc 0'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg -change -disk-timeout-ac 0'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg -change -monitor-timeout-ac 0'
+      wait: true
+
+  - !cmd:
+      command: 'powercfg -change -standby-timeout-ac 0'
+      wait: true
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Services\USB'
+      value: 'DisableSelectiveSuspend'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583\DefaultPowerSchemeValues\11111111-1111-1111-1111-111111111111'
+      value: 'ValueMax'
+      type: REG_DWORD
+      data: '100'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583\DefaultPowerSchemeValues\11111111-1111-1111-1111-111111111111'
+      value: 'ValueMin'
+      type: REG_DWORD
+      data: '100'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling'
+      value: 'PowerThrottlingOff'
+      type: REG_DWORD
+      data: '1'

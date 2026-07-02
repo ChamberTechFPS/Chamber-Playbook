@@ -1,0 +1,31 @@
+title: Main
+actions:
+  - !status: {status: 'Starting Chamber - Phase 1: Power Plan'}
+  - !task: {path: 'Tasks/1-power.yml'}
+
+  - !status: {status: 'Phase 2: Boot Performance (BCD)'}
+  - !task: {path: 'Tasks/2-bcd.yml'}
+
+  - !status: {status: 'Phase 3: Disabling Background Services'}
+  - !task: {path: 'Tasks/3-services.yml'}
+
+  - !status: {status: 'Phase 4: Applying Chamber Registry Tweaks'}
+  - !task: {path: 'Tasks/4-registry.yml'}
+
+  - !status: {status: 'Phase 5: Privacy Configuration'}
+  - !task: {path: 'Tasks/5-privacy.yml'}
+
+  - !status: {status: 'Phase 6: Removing Bloatware'}
+  - !task: {path: 'Tasks/6-debloat.yml'}
+
+  - !status: {status: 'Phase 7: Security Configuration'}
+  - !task: {path: 'Tasks/7-security.yml'}
+
+  - !status: {status: 'Phase 8: Windows UI Configuration'}
+  - !task: {path: 'Tasks/8-configure-windows.yml'}
+
+  - !status: {status: 'Phase 9: Network & Process Optimization'}
+  - !task: {path: 'Tasks/9-network.yml'}
+
+  - !status: {status: 'Phase 10: Installing Programs & Finalizing'}
+  - !task: {path: 'Tasks/10-finalize.yml'}

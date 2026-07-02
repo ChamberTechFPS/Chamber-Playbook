@@ -1,0 +1,88 @@
+title: Security
+actions:
+  - !status: {status: 'Disabling VBS / HVCI if selected'}
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard'
+      value: 'EnableVirtualizationBasedSecurity'
+      type: REG_DWORD
+      data: '0'
+      option: 'disable-vbs'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard'
+      value: 'RequirePlatformSecurityFeatures'
+      type: REG_DWORD
+      data: '0'
+      option: 'disable-vbs'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+      value: 'Enabled'
+      type: REG_DWORD
+      data: '0'
+      option: 'disable-vbs'
+
+  - !status: {status: 'Disabling Smart App Control if selected'}
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\CI\Policy'
+      value: 'VerifiedAndReputablePolicyState'
+      type: REG_DWORD
+      data: '0'
+      option: 'disable-sac'
+
+  - !status: {status: 'Disabling Windows Defender if selected'}
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender'
+      value: 'DisableAntiSpyware'
+      type: REG_DWORD
+      data: '1'
+      option: 'remove-defender'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection'
+      value: 'DisableRealtimeMonitoring'
+      type: REG_DWORD
+      data: '1'
+      option: 'remove-defender'
+
+  - !service:
+      name: 'WinDefend'
+      operation: stop
+      option: 'remove-defender'
+
+  - !service:
+      name: 'WdNisSvc'
+      operation: stop
+      option: 'remove-defender'
+
+  - !service:
+      name: 'SecurityHealthService'
+      operation: stop
+      option: 'remove-defender'
+
+  - !cmd:
+      command: 'reg add "HKLM\SOFTWARE\Microsoft\Windows Defender" /v "DisableAntiVirus" /t REG_DWORD /d 1 /f'
+      wait: true
+      option: 'remove-defender'
+
+  - !status: {status: 'Configuring Windows Update policy if selected'}
+
+  # Notify-only: no background downloads/installs, but Store and Xbox still
+  # use the update/download stack. wuauserv and UsoSvc intentionally left at
+  # defaults (Manual/Automatic) so Store + Xbox downloads keep working.
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
+      value: 'NoAutoUpdate'
+      type: REG_DWORD
+      data: '1'
+      option: 'disable-updates'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
+      value: 'AUOptions'
+      type: REG_DWORD
+      data: '2'
+      option: 'disable-updates'

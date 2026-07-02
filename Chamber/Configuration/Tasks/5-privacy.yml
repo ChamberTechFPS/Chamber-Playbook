@@ -1,0 +1,82 @@
+title: Privacy
+actions:
+  - !status: {status: 'Blocking telemetry at registry level'}
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection'
+      value: 'AllowTelemetry'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+      value: 'AllowTelemetry'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener'
+      value: 'Start'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\SQMLogger'
+      value: 'Start'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+      value: 'Enabled'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'Start_TrackProgs'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+      value: 'EnableActivityFeed'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+      value: 'PublishUserActivities'
+      type: REG_DWORD
+      data: '0'
+
+  - !status: {status: 'Blocking telemetry executables via IFEO'}
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe'
+      value: 'Debugger'
+      type: REG_SZ
+      data: '%windir%\System32\taskkill.exe'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\AggregatorHost.exe'
+      value: 'Debugger'
+      type: REG_SZ
+      data: '%windir%\System32\taskkill.exe'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe'
+      value: 'Debugger'
+      type: REG_SZ
+      data: '%windir%\System32\taskkill.exe'
+
+  - !status: {status: 'Adding telemetry blocks to hosts file'}
+
+  - !cmd:
+      exeDir: true
+      command: 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Update-HostsTelemetryBlocks.ps1"'
+      wait: true
+
+  # Intentionally do not add Windows Firewall "domain block" rules here.
+  # The older netsh version used remoteip=any, which can break all outbound traffic.
+  - !status: {status: 'Skipping Windows Firewall domain blocks to avoid internet breakage'}

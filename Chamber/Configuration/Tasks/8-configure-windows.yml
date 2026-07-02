@@ -1,0 +1,132 @@
+title: Configure Windows
+actions:
+  - !status: {status: 'Configuring clean taskbar'}
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'TaskbarAl'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'ShowTaskViewButton'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Search'
+      value: 'SearchboxTaskbarMode'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'TaskbarDa'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'TaskbarMn'
+      type: REG_DWORD
+      data: '0'
+
+  - !status: {status: 'Applying OLED safety options if selected'}
+
+  - !cmd:
+      command: 'powercfg -change -monitor-timeout-ac 5'
+      wait: true
+      option: 'oled-safety'
+
+  - !cmd:
+      command: 'powercfg -change -monitor-timeout-dc 5'
+      wait: true
+      option: 'oled-safety'
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Enable-OledSafety.ps1"'
+      wait: true
+      option: 'oled-safety'
+
+  - !status: {status: 'Configuring File Explorer'}
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'HideFileExt'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'Hidden'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'LaunchTo'
+      type: REG_DWORD
+      data: '1'
+
+  - !status: {status: 'Enabling classic context menu'}
+
+  - !cmd:
+      runas: currentUserElevated
+      command: 'reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /ve /f'
+      wait: true
+      errorAction: Notify
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+      value: 'NoLockScreen'
+      type: REG_DWORD
+      data: '1'
+
+  - !status: {status: 'Disabling accessibility key prompts'}
+
+  - !registryValue:
+      path: 'HKCU\Control Panel\Accessibility\StickyKeys'
+      value: 'Flags'
+      type: REG_SZ
+      data: '506'
+
+  - !registryValue:
+      path: 'HKCU\Control Panel\Accessibility\ToggleKeys'
+      value: 'Flags'
+      type: REG_SZ
+      data: '58'
+
+  - !registryValue:
+      path: 'HKCU\Control Panel\Accessibility\Keyboard Response'
+      value: 'Flags'
+      type: REG_SZ
+      data: '122'
+
+  - !status: {status: 'Setting dark mode'}
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+      value: 'AppsUseLightTheme'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
+      value: 'SystemUsesLightTheme'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'SnapAssist'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+      value: 'ShowCopilotButton'
+      type: REG_DWORD
+      data: '0'

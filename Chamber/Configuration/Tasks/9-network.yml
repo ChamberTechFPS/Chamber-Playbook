@@ -1,0 +1,67 @@
+title: Network
+actions:
+  - !status: {status: 'Demoting background process priorities'}
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchIndexer.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchIndexer.exe\PerfOptions'
+      value: 'IoPriority'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchProtocolHost.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchFilterHost.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sihost.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\RuntimeBroker.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe\PerfOptions'
+      value: 'IoPriority'
+      type: REG_DWORD
+      data: '0'
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WerFault.exe\PerfOptions'
+      value: 'CpuPriorityClass'
+      type: REG_DWORD
+      data: '1'
+
+  - !status: {status: 'Applying TCP network optimizations'}
+
+  - !cmd:
+      command: 'netsh int tcp set global autotuninglevel=normal'
+      wait: true
+
+  - !cmd:
+      command: 'netsh int tcp set global ecncapability=disabled'
+      wait: true

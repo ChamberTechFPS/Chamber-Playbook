@@ -1,0 +1,24 @@
+title: Boot Performance
+actions:
+  - !status: {status: 'Applying BCD boot performance tweaks'}
+
+  # || echo fallback prevents AME from halting if the parameter is unsupported on this hardware/BIOS
+  - !cmd:
+      command: 'bcdedit /set useplatformtick yes || echo [WARN] useplatformtick not supported on this hardware - skipping'
+      wait: true
+
+  - !cmd:
+      command: 'bcdedit /set disabledynamictick yes || echo [WARN] disabledynamictick not supported on this hardware - skipping'
+      wait: true
+
+  - !cmd:
+      command: 'bcdedit /set tscsyncpolicy Enhanced || echo [WARN] tscsyncpolicy Enhanced not supported on this hardware - skipping'
+      wait: true
+
+  - !cmd:
+      command: 'bcdedit /set bootux disabled || echo [WARN] bootux not supported on this hardware - skipping'
+      wait: true
+
+  - !cmd:
+      command: 'bcdedit /timeout 0'
+      wait: true

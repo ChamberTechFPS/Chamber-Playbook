@@ -1,0 +1,114 @@
+title: Services
+actions:
+  - !status: {status: 'Disabling telemetry and diagnostic services'}
+
+  - !service:
+      name: 'DiagTrack'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'WerSvc'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'DiagnosticsHub.StandardCollector.Service'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'dmwappushservice'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'wisvc'
+      operation: change
+      startup: 4
+
+  - !status: {status: 'Disabling disk I/O heavy services'}
+
+  - !service:
+      name: 'WSearch'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'SysMain'
+      operation: change
+      startup: 4
+
+  - !status: {status: 'Disabling network bandwidth wasters'}
+
+  - !service:
+      name: 'WMPNetworkSvc'
+      operation: change
+      startup: 4
+
+  - !status: {status: 'Disabling irrelevant desktop services'}
+
+  - !service:
+      name: 'TabletInputService'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'MapsBroker'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'PcaSvc'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'RemoteRegistry'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'TapiSrv'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'Fax'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'RetailDemo'
+      operation: change
+      startup: 4
+
+  - !service:
+      name: 'XblAuthManager'
+      operation: change
+      startup: 4
+      option: 'remove-xbox'
+
+  - !service:
+      name: 'XblGameSave'
+      operation: change
+      startup: 4
+      option: 'remove-xbox'
+
+  - !service:
+      name: 'XboxNetApiSvc'
+      operation: change
+      startup: 4
+      option: 'remove-xbox'
+
+  - !service:
+      name: 'XboxGipSvc'
+      operation: change
+      startup: 4
+      option: 'remove-xbox'
+
+  - !service:
+      name: 'GamingServices'
+      operation: change
+      startup: 4
+      option: 'remove-xbox'

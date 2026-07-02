@@ -1,0 +1,20 @@
+title: Debloat
+actions:
+  - !status: {status: 'Removing balanced Windows inbox bloat'}
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Invoke-BalancedDebloat.ps1"'
+      wait: true
+      errorAction: Notify
+
+  - !status: {status: 'Removing Xbox apps if selected'}
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Invoke-BalancedDebloat.ps1" -XboxOnly'
+      wait: true
+      option: 'remove-xbox'
+      errorAction: Notify

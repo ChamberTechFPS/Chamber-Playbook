@@ -1,0 +1,55 @@
+title: Finalize
+actions:
+  - !status: {status: 'Installing DirectX and Visual C++ Redistributables'}
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'if exist "DirectX\DXSETUP.exe" (start /wait "" "DirectX\DXSETUP.exe" /silent) else (echo DirectX not found - skipping)'
+      wait: true
+      errorAction: Notify
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'if exist "vcredist_all.exe" (start /wait "" "vcredist_all.exe" /silent) else (echo VC++ Redist not found - skipping)'
+      wait: true
+      errorAction: Notify
+
+  - !status: {status: 'Checking prerequisites for app installs'}
+
+  # Verify winget is available
+  - !cmd:
+      command: 'winget --version || echo [WARN] winget not found - app installs will be skipped'
+      wait: true
+      errorAction: Log
+
+  # Warn if no internet — winget installs will fail silently without this
+  - !cmd:
+      command: 'powershell -NoProfile -Command "if(Test-Connection 8.8.8.8 -Count 1 -Quiet){Write-Host ''Internet connectivity verified.''}else{Write-Host ''WARNING: No internet connection detected. App installs may fail or be skipped.'' -ForegroundColor Yellow}"'
+      wait: true
+      errorAction: Log
+
+  - !status: {status: 'Installing browser'}
+
+  - !run:
+      exe: 'winget'
+      args: 'install -e --id Google.Chrome --source winget --silent --accept-package-agreements --accept-source-agreements'
+      runas: currentUserElevated
+      option: 'browser-chrome'
+      errorAction: Notify
+
+  - !run:
+      exe: 'winget'
+      args: 'install -e --id Brave.Brave --source winget --silent --accept-package-agreements --accept-source-agreements'
+      runas: currentUserElevated
+      option: 'browser-brave'
+      errorAction: Notify
+
+  - !status: {status: 'Chamber setup complete - restarting'}
+
+  - !cmd:
+      command: '%SystemRoot%\System32\shutdown.exe /r /t 30 /c "Chamber setup complete. Restarting to apply all changes..."'
+      runas: currentUserElevated
+      wait: true
+      errorAction: Notify
