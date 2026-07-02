@@ -6,8 +6,8 @@ _private/
 files.zip
 
 # Redistributable payloads - place locally before packaging, do not commit
-Chamber/Executables/DirectX/
-Chamber/Executables/vcredist_all.exe
+Executables/DirectX/
+Executables/vcredist_all.exe
 
 # Local Claude Code settings - not part of the playbook
 .claude/
