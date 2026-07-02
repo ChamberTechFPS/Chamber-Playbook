@@ -16,7 +16,6 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 - [What It Does](#what-it-does)
 - [Windows App Removal (Debloat)](#windows-app-removal-debloat)
 - [Anti-Cheat Compatibility](#anti-cheat-compatibility)
-- [Building the Playbook](#building-the-playbook)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -94,35 +93,6 @@ Removed apps can be reinstalled at any time from the Microsoft Store, which Cham
 | **BattlEye** | ✅ Works | No changes needed |
 
 > ❗ **Do NOT disable Secure Boot.** Multiple anti-cheats now require it, and Chamber Playbook is built to keep it enabled.
-
----
-
-## Building the Playbook
-
-> This section is for maintainers packaging a new `.apbx`. End users can skip it — grab the prebuilt release instead.
-
-### 1. Add redistributable installers
-
-These are not committed to the repo. Before packaging, place them locally:
-
-1. **DirectX End-User Runtime** — download from Microsoft, extract, and place as `Executables/DirectX/DXSETUP.exe`
-2. **Visual C++ Redistributables (All-in-One)** — covers 2005–2022; place as `Executables/vcredist_all.exe`
-
-> If these files are absent, the playbook skips them and continues normally.
-
-### 2. Package into `.apbx`
-
-**Option A — 7-Zip CLI (recommended)**
-```bash
-7z a -p"malte" -mhe=on "Chamber.apbx" "./*" "-xr!*.apbx" "-xr!_private" "-xr!.git"
-```
-
-**Option B — 7-Zip GUI**
-1. Select all playbook files (excluding `_private/`, `.git/`, and any existing `.apbx`)
-2. Right-click → 7-Zip → Add to archive
-3. Archive format: **7z**
-4. Encryption password: **malte** · check **Encrypt file names**
-5. Rename the output extension to `.apbx`
 
 ---
 
