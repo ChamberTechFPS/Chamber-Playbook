@@ -3,14 +3,10 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
-## [Unreleased]
-
-### Added
-- Finalize phase now copies the Post-Install Companion to `C:\ChamberTech\PostInstall` and creates a "Chamber Post-Install" Desktop shortcut, so it's easy to find after reboot regardless of where the playbook was originally run from
-
 ## [1.1.0] - 2026-07-02
 
 ### Added
+- Finalize phase now copies the Post-Install Companion to `C:\ChamberTech\PostInstall` and creates a "Chamber Post-Install" Desktop shortcut, so it's easy to find after reboot regardless of where the playbook was originally run from
 - Windows 11 25H2 (build 26200) listed as supported in README (already supported in `playbook.conf`)
 - Manifest-driven system verification: `tools/generate_verification_manifest.py` generates `PostInstall/Verify/verification-manifest.json` from the playbook YAML; Step 4 verification now checks all 80 registry tweaks, 20 services, BCD flags, hosts entries, and debloat targets against actual system state
 - `-ClientReport` switch on verification: bundles results, logs, and system info into a Desktop zip for support
