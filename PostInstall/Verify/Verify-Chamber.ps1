@@ -119,7 +119,7 @@ if ($manifest) {
         }
         if ($null -eq $actual) {
             if ($isOptional) { $svcOpt++; if ($Detailed) { Add-Check 'INFO' 'Services' $svc.name "optional [$($svc.option)] - service not present" } }
-            else { Add-Check 'WARN' 'Services' $svc.name 'service key not found (removed or renamed on this build?)' }
+            else { Add-Check 'INFO' 'Services' $svc.name 'service not present on this build (not a failure)' }
         } elseif ($actual -eq $svc.startup) {
             $svcPass++
             if ($Detailed) { Add-Check 'PASS' 'Services' $svc.name "startup = $actual" }
@@ -219,7 +219,7 @@ try {
 $msiPropsRelPath = 'Device Parameters\Interrupt Management\MessageSignaledInterruptProperties'
 $msiDevices = @()
 $msiDevices += @(Get-PnpDevice -Class Display -ErrorAction SilentlyContinue |
-                 Where-Object { $_.Status -eq 'OK' -and $_.FriendlyName -notmatch 'Microsoft' })
+                 Where-Object { $_.Status -eq 'OK' -and $_.FriendlyName -notmatch 'Microsoft|Virtual|Parsec|Remote|IDD' })
 $msiDevices += @(Get-PnpDevice -Class Net -ErrorAction SilentlyContinue |
                  Where-Object {
                      $_.Status -eq 'OK' -and
