@@ -1,0 +1,67 @@
+name: Build and Release Playbook
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install 7zip
+        run: sudo apt-get update && sudo apt-get install -y p7zip-full
+
+      - name: Regenerate verification manifest
+        run: python3 tools/generate_verification_manifest.py
+
+      - name: Fail if manifest is out of date in the repo
+        run: |
+          # generatedUtc always changes on regen, so compare content with it stripped.
+          committed=$(git show HEAD:PostInstall/Verify/verification-manifest.json | jq 'del(.generatedUtc)')
+          regenerated=$(jq 'del(.generatedUtc)' PostInstall/Verify/verification-manifest.json)
+          if [ "$committed" != "$regenerated" ]; then
+            echo "::error::verification-manifest.json is stale. Run tools/generate_verification_manifest.py and commit the result."
+            diff <(echo "$committed") <(echo "$regenerated") || true
+            exit 1
+          fi
+
+      - name: Package .apbx
+        run: |
+          # AME Wizard expects playbook.conf at archive root — package contents,
+          # not the folder. Password 'malte' is the AME convention, not a secret.
+          7z a -p'malte' -mx=9 Chamber.7z \
+            playbook.conf playbook.png Configuration Executables PostInstall AGENTS.md
+          mv Chamber.7z Chamber.apbx
+
+      - name: Generate checksums
+        run: |
+          sha256sum Chamber.apbx > SHA256SUMS.txt
+          # Hash every executable script so users can verify against the repo
+          find Executables PostInstall -type f \( -name '*.ps1' -o -name '*.bat' \) -print0 \
+            | sort -z | xargs -0 sha256sum >> SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            Chamber.apbx
+            SHA256SUMS.txt
+          generate_release_notes: true
+
+      - name: Upload artifact (non-tag builds)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Chamber-apbx
+          path: |
+            Chamber.apbx
+            SHA256SUMS.txt

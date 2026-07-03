@@ -1,0 +1,54 @@
+name: Bug Report
+description: Something broke after running Chamber Playbook
+labels: [bug]
+body:
+  - type: input
+    id: winver
+    attributes:
+      label: Windows version
+      description: Run `winver` — e.g. 24H2 (26100.2314)
+      placeholder: "25H2 (26200.xxxx)"
+    validations:
+      required: true
+  - type: input
+    id: pbversion
+    attributes:
+      label: Chamber Playbook version
+      placeholder: "v1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: installtype
+    attributes:
+      label: Install type
+      options:
+        - Fresh Windows install (as recommended)
+        - Existing/upgraded install
+    validations:
+      required: true
+  - type: checkboxes
+    id: options
+    attributes:
+      label: Options selected in AME Wizard
+      options:
+        - label: Disable Windows Defender
+        - label: Disable VBS / HVCI
+        - label: Pause Windows Updates
+        - label: Remove Xbox Services
+        - label: Disable Game Bar / DVR
+        - label: OLED Safety
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What broke, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Chamber verification report
+      description: >
+        Open the Chamber Post-Install tool (START-HERE.bat), run verification,
+        and attach the ChamberReport zip from your Desktop, or paste the
+        summary here. Logs live in C:\ProgramData\ChamberPostInstall\logs.
