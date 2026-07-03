@@ -39,7 +39,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 
 | Requirement         | Details                                                          |
 | ------------------- | ---------------------------------------------------------------- |
-| **OS**              | Fresh Windows 11 install — 22H2, 23H2, 24H2, or 25H2             |
+| **OS**              | Fresh Windows 11 install — 22H2 (22621), 23H2 (22631), 24H2 (26100), or 25H2 (26200) |
 | **Windows Updates** | Install all pending updates *before* running                     |
 | **Antivirus**       | Uninstall any third-party AV first (Defender is handled for you) |
 | **Internet**        | Required for winget-based app installs                           |
