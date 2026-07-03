@@ -1,8 +1,14 @@
-This folder is reserved for optional manual overrides.
+TOOLS - OPTIONAL
+----------------
+  DDU (Display Driver Uninstaller):
+    https://www.wagnardsoft.com
+    Only needed if migrating from an old install or switching
+    GPU vendors. Run in Safe Mode, then install fresh driver.
 
-DDU is installed automatically via winget when you run Step 1.
-When DDU is found, Step 1 copies Display Driver Uninstaller.exe here
-and saves this staged path for the Safe Mode cleanup step.
+  HWiNFO (sensors/monitoring):
+    https://www.hwinfo.com
 
-If winget is unavailable, place Display Driver Uninstaller.exe here and
-Step 2 will find it automatically.
+  CapFrameX (frametime benchmarking):
+    https://www.capframex.com
+    Benchmark before/after to see your gains - 1% lows matter
+    more than average FPS.

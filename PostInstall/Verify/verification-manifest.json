@@ -1,0 +1,776 @@
+{
+  "schema": 1,
+  "generatedUtc": "2026-07-02T17:58:50Z",
+  "registryValues": [
+    {
+      "source": "1-power.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USB",
+      "value": "DisableSelectiveSuspend",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "1-power.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerSettings\\54533251-82be-4824-96c1-47b60b740d00\\0cc5b647-c1df-4637-891a-dec35c318583\\DefaultPowerSchemeValues\\11111111-1111-1111-1111-111111111111",
+      "value": "ValueMax",
+      "type": "REG_DWORD",
+      "data": "100"
+    },
+    {
+      "source": "1-power.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerSettings\\54533251-82be-4824-96c1-47b60b740d00\\0cc5b647-c1df-4637-891a-dec35c318583\\DefaultPowerSchemeValues\\11111111-1111-1111-1111-111111111111",
+      "value": "ValueMin",
+      "type": "REG_DWORD",
+      "data": "100"
+    },
+    {
+      "source": "1-power.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling",
+      "value": "PowerThrottlingOff",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+      "value": "SystemResponsiveness",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+      "value": "GPU Priority",
+      "type": "REG_DWORD",
+      "data": "8"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+      "value": "Priority",
+      "type": "REG_DWORD",
+      "data": "6"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+      "value": "Scheduling Category",
+      "type": "REG_SZ",
+      "data": "High"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+      "value": "SFIO Priority",
+      "type": "REG_SZ",
+      "data": "High"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl",
+      "value": "Win32PrioritySeparation",
+      "type": "REG_DWORD",
+      "data": "38"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+      "value": "LargeSystemCache",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers",
+      "value": "HwSchMode",
+      "type": "REG_DWORD",
+      "data": "2"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Mouse",
+      "value": "MouseSpeed",
+      "type": "REG_SZ",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Mouse",
+      "value": "MouseThreshold1",
+      "type": "REG_SZ",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Mouse",
+      "value": "MouseThreshold2",
+      "type": "REG_SZ",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
+      "value": "NtfsDisableLastAccessUpdate",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control",
+      "value": "WaitToKillServiceTimeout",
+      "type": "REG_SZ",
+      "data": "1500"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Desktop",
+      "value": "HungAppTimeout",
+      "type": "REG_SZ",
+      "data": "2000"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Desktop",
+      "value": "WaitToKillAppTimeout",
+      "type": "REG_SZ",
+      "data": "2000"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Desktop",
+      "value": "AutoEndTasks",
+      "type": "REG_SZ",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+      "value": "NetworkThrottlingIndex",
+      "type": "REG_DWORD",
+      "data": "4294967295"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+      "value": "TcpNoDelay",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\MSMQ\\Parameters",
+      "value": "TCPNoDelay",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters",
+      "value": "DefaultSendWindow",
+      "type": "REG_DWORD",
+      "data": "65536"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters",
+      "value": "DefaultReceiveWindow",
+      "type": "REG_DWORD",
+      "data": "65536"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+      "value": "VisualFXSetting",
+      "type": "REG_DWORD",
+      "data": "2"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Desktop",
+      "value": "MenuShowDelay",
+      "type": "REG_SZ",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\Control Panel\\Desktop\\WindowMetrics",
+      "value": "MinAnimate",
+      "type": "REG_SZ",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching",
+      "value": "SearchOrderConfig",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
+      "value": "MaintenanceDisabled",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\System\\GameConfigStore",
+      "value": "GameDVR_Enabled",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR",
+      "value": "AllowGameDVR",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+      "value": "AppCaptureEnabled",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\SOFTWARE\\Microsoft\\GameBar",
+      "value": "UseNexusForGameBarEnabled",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\SOFTWARE\\Microsoft\\GameBar",
+      "value": "AllowAutoGameMode",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "4-registry.yml",
+      "path": "HKCU\\SOFTWARE\\Microsoft\\GameBar",
+      "value": "AutoGameModeEnabled",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-gamebar"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+      "value": "AllowTelemetry",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+      "value": "AllowTelemetry",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\Diagtrack-Listener",
+      "value": "Start",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\WMI\\Autologger\\SQMLogger",
+      "value": "Start",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
+      "value": "Enabled",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "Start_TrackProgs",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+      "value": "EnableActivityFeed",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+      "value": "PublishUserActivities",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\CompatTelRunner.exe",
+      "value": "Debugger",
+      "type": "REG_SZ",
+      "data": "%windir%\\System32\\taskkill.exe"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\AggregatorHost.exe",
+      "value": "Debugger",
+      "type": "REG_SZ",
+      "data": "%windir%\\System32\\taskkill.exe"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DeviceCensus.exe",
+      "value": "Debugger",
+      "type": "REG_SZ",
+      "data": "%windir%\\System32\\taskkill.exe"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard",
+      "value": "EnableVirtualizationBasedSecurity",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-vbs"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard",
+      "value": "RequirePlatformSecurityFeatures",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-vbs"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\\Scenarios\\HypervisorEnforcedCodeIntegrity",
+      "value": "Enabled",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-vbs"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy",
+      "value": "VerifiedAndReputablePolicyState",
+      "type": "REG_DWORD",
+      "data": "0",
+      "option": "disable-sac"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender",
+      "value": "DisableAntiSpyware",
+      "type": "REG_DWORD",
+      "data": "1",
+      "option": "remove-defender"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection",
+      "value": "DisableRealtimeMonitoring",
+      "type": "REG_DWORD",
+      "data": "1",
+      "option": "remove-defender"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "value": "NoAutoUpdate",
+      "type": "REG_DWORD",
+      "data": "1",
+      "option": "disable-updates"
+    },
+    {
+      "source": "7-security.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "value": "AUOptions",
+      "type": "REG_DWORD",
+      "data": "2",
+      "option": "disable-updates"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "TaskbarAl",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "ShowTaskViewButton",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+      "value": "SearchboxTaskbarMode",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "TaskbarDa",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "TaskbarMn",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "HideFileExt",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "Hidden",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "LaunchTo",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+      "value": "NoLockScreen",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Control Panel\\Accessibility\\StickyKeys",
+      "value": "Flags",
+      "type": "REG_SZ",
+      "data": "506"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Control Panel\\Accessibility\\ToggleKeys",
+      "value": "Flags",
+      "type": "REG_SZ",
+      "data": "58"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Control Panel\\Accessibility\\Keyboard Response",
+      "value": "Flags",
+      "type": "REG_SZ",
+      "data": "122"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+      "value": "AppsUseLightTheme",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+      "value": "SystemUsesLightTheme",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "SnapAssist",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "8-configure-windows.yml",
+      "path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+      "value": "ShowCopilotButton",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\SearchIndexer.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\SearchIndexer.exe\\PerfOptions",
+      "value": "IoPriority",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\SearchProtocolHost.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\SearchFilterHost.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\sihost.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\RuntimeBroker.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\CompatTelRunner.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\CompatTelRunner.exe\\PerfOptions",
+      "value": "IoPriority",
+      "type": "REG_DWORD",
+      "data": "0"
+    },
+    {
+      "source": "9-network.yml",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WerFault.exe\\PerfOptions",
+      "value": "CpuPriorityClass",
+      "type": "REG_DWORD",
+      "data": "1"
+    }
+  ],
+  "services": [
+    {
+      "source": "3-services.yml",
+      "name": "DiagTrack",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "WerSvc",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "DiagnosticsHub.StandardCollector.Service",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "dmwappushservice",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "wisvc",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "WSearch",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "SysMain",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "WMPNetworkSvc",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "TabletInputService",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "MapsBroker",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "PcaSvc",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "RemoteRegistry",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "TapiSrv",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "Fax",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "RetailDemo",
+      "startup": 4
+    },
+    {
+      "source": "3-services.yml",
+      "name": "XblAuthManager",
+      "startup": 4,
+      "option": "remove-xbox"
+    },
+    {
+      "source": "3-services.yml",
+      "name": "XblGameSave",
+      "startup": 4,
+      "option": "remove-xbox"
+    },
+    {
+      "source": "3-services.yml",
+      "name": "XboxNetApiSvc",
+      "startup": 4,
+      "option": "remove-xbox"
+    },
+    {
+      "source": "3-services.yml",
+      "name": "XboxGipSvc",
+      "startup": 4,
+      "option": "remove-xbox"
+    },
+    {
+      "source": "3-services.yml",
+      "name": "GamingServices",
+      "startup": 4,
+      "option": "remove-xbox"
+    }
+  ],
+  "bcd": {
+    "flags": [
+      {
+        "source": "2-bcd.yml",
+        "flag": "useplatformtick",
+        "expected": "yes",
+        "tolerant": true
+      },
+      {
+        "source": "2-bcd.yml",
+        "flag": "disabledynamictick",
+        "expected": "yes",
+        "tolerant": true
+      },
+      {
+        "source": "2-bcd.yml",
+        "flag": "tscsyncpolicy",
+        "expected": "Enhanced",
+        "tolerant": true
+      },
+      {
+        "source": "2-bcd.yml",
+        "flag": "bootux",
+        "expected": "disabled",
+        "tolerant": true
+      }
+    ],
+    "timeout": 0
+  },
+  "hostsEntries": [
+    "0.0.0.0 vortex.data.microsoft.com",
+    "0.0.0.0 settings-win.data.microsoft.com",
+    "0.0.0.0 telemetry.microsoft.com",
+    "0.0.0.0 watson.telemetry.microsoft.com",
+    "0.0.0.0 statsfe2.ws.microsoft.com",
+    "0.0.0.0 statsfe1.ws1.microsoft.com"
+  ],
+  "debloat": {
+    "balanced": [
+      "Microsoft.OutlookForWindows",
+      "microsoft.windowscommunicationsapps",
+      "Microsoft.MicrosoftSolitaireCollection",
+      "MSTeams",
+      "MicrosoftTeams",
+      "Microsoft.MicrosoftTeams",
+      "Clipchamp.Clipchamp",
+      "Microsoft.Copilot",
+      "MicrosoftWindows.Client.WebExperience",
+      "Microsoft.WidgetsPlatformRuntime",
+      "Microsoft.YourPhone",
+      "Microsoft.BingNews",
+      "Microsoft.BingWeather",
+      "Microsoft.BingSearch",
+      "Microsoft.BingFinance",
+      "Microsoft.BingSports",
+      "Microsoft.WindowsFeedbackHub",
+      "Microsoft.GetHelp",
+      "Microsoft.Getstarted",
+      "Microsoft.ZuneVideo",
+      "Microsoft.ZuneMusic",
+      "Microsoft.WindowsSoundRecorder",
+      "MicrosoftCorporationII.MicrosoftFamily",
+      "Microsoft.People",
+      "Microsoft.Todos",
+      "Microsoft.PowerAutomateDesktop",
+      "Microsoft.Whiteboard",
+      "Microsoft.WindowsMaps",
+      "Microsoft.MicrosoftOfficeHub",
+      "Microsoft.MicrosoftPowerBIForWindows",
+      "SpotifyAB.SpotifyMusic",
+      "Microsoft.Windows.DevHome",
+      "MicrosoftCorporationII.DevHome",
+      "Microsoft.DevHome",
+      "7EE7776C.LinkedInforWindows",
+      "Microsoft.LinkedIn",
+      "Microsoft.SkypeApp",
+      "Microsoft.549981C3F5F10",
+      "Microsoft.MixedReality.Portal"
+    ],
+    "xbox": [
+      "Microsoft.GamingApp",
+      "Microsoft.XboxApp",
+      "Microsoft.XboxGameOverlay",
+      "Microsoft.XboxGamingOverlay",
+      "Microsoft.XboxIdentityProvider",
+      "Microsoft.XboxSpeechToTextOverlay"
+    ]
+  },
+  "unparsedActions": []
+}

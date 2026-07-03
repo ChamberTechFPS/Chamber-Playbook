@@ -1,20 +1,22 @@
 @echo off
-setlocal
-
-:: Self-elevate if not already running as administrator
-net session >nul 2>&1
-if %ERRORLEVEL% NEQ 0 (
-    echo Requesting administrator privileges...
-    powershell -NoProfile -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
-    exit /b
-)
-
-cd /d "%~dp0"
-PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\0-Launcher.ps1"
-if %ERRORLEVEL% NEQ 0 (
-    echo.
-    echo ERROR: Script exited with code %ERRORLEVEL%
-    echo Check the output above for details.
-    echo.
-    pause
-)
+title Chamber - Post-Install
+:menu
+cls
+echo.
+echo   ============================================
+echo     CHAMBER - POST-INSTALL
+echo   ============================================
+echo.
+echo    [1]  Verify system (checks every tweak)
+echo    [2]  Verify + create support report zip
+echo    [3]  Open Drivers folder
+echo    [4]  Read the guide
+echo    [Q]  Quit
+echo.
+set /p choice="   Select: "
+if /i "%choice%"=="1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0Verify\Verify-Chamber.ps1" & pause & goto menu
+if /i "%choice%"=="2" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0Verify\Verify-Chamber.ps1" -ClientReport & pause & goto menu
+if /i "%choice%"=="3" explorer "%~dp0Drivers" & goto menu
+if /i "%choice%"=="4" notepad "%~dp0README.txt" & goto menu
+if /i "%choice%"=="Q" exit /b
+goto menu
