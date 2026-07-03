@@ -1,5 +1,14 @@
 title: Finalize
 actions:
+  - !status: {status: 'Installing Post-Install Companion to C:\ChamberTech'}
+
+  - !cmd:
+      exeDir: true
+      runas: currentUserElevated
+      command: 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Install-PostInstallCompanion.ps1"'
+      wait: true
+      errorAction: Log
+
   - !status: {status: 'Installing DirectX and Visual C++ Redistributables'}
 
   - !cmd:

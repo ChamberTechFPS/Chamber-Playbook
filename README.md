@@ -55,7 +55,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 2. Download and open **AME Wizard** from [ameliorated.io](https://ameliorated.io).
 3. Drag `Chamber.apbx` into AME Wizard.
 4. Follow the on-screen options and let it run.
-5. After reboot, run the **Post-Install Companion** (`PostInstall\START-HERE.bat`) to finish driver setup and verify everything applied.
+5. After reboot, open the **Chamber Post-Install** shortcut on the Desktop (or `C:\ChamberTech\PostInstall`) and run `START-HERE.bat` to finish driver setup and verify everything applied.
 
 > 💡 Chamber Playbook is designed for a clean install. Running it on a heavily customized system may produce mixed results.
 
@@ -80,7 +80,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 
 ## Post-Install Companion
 
-Chamber ships with a simple post-install folder — run `PostInstall\START-HERE.bat` after the playbook finishes:
+Chamber ships with a simple post-install folder. During the Finalize phase, the playbook copies it to `C:\ChamberTech\PostInstall` and adds a **Chamber Post-Install** shortcut to the Desktop, so it's easy to find after reboot even if you ran the playbook from a USB drive or a temp download folder:
 
 ```
 PostInstall/
