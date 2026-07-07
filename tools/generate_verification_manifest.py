@@ -31,6 +31,7 @@ BCD_RE = re.compile(r"bcdedit\s+/set\s+(\S+)\s+(\S+)")
 BCD_TIMEOUT_RE = re.compile(r"bcdedit\s+/timeout\s+(\d+)")
 HOSTS_ENTRY_RE = re.compile(r"'(0\.0\.0\.0\s+\S+)'")
 APPX_NAMES_RE = re.compile(r"-AppxNames\s+@\(([^)]*)\)")
+FSUTIL_LASTACCESS_RE = re.compile(r"fsutil\s+behavior\s+set\s+disablelastaccess\s+(\d)", re.IGNORECASE)
 
 
 def unquote(v: str) -> str:
@@ -138,6 +139,17 @@ def main() -> int:
                 if option:
                     entry["option"] = option
                 manifest["services"].append(entry)
+            elif name == "cmd" and (mf := FSUTIL_LASTACCESS_RE.search(p.get("command", ""))):
+                # fsutil behavior set disablelastaccess N writes this value
+                manifest["registryValues"].append(
+                    {
+                        "source": source,
+                        "path": r"HKLM\SYSTEM\CurrentControlSet\Control\FileSystem",
+                        "value": "NtfsDisableLastAccessUpdate",
+                        "type": "REG_DWORD",
+                        "data": mf.group(1),
+                    }
+                )
             elif name == "cmd" and "bcdedit" in p.get("command", ""):
                 cmd = p["command"]
                 mb = BCD_RE.search(cmd)

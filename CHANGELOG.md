@@ -3,6 +3,11 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [1.1.1] - 2026-07-06
+
+### Changed
+- NTFS last-access updates are now disabled via `fsutil behavior set disablelastaccess 1` instead of a raw `NtfsDisableLastAccessUpdate` registry write, so NTFS picks it up immediately and the setting is stamped user-managed (Windows won't revert it to the system-managed default). Verification still checks the same registry value; the manifest generator derives it from the fsutil command.
+
 ## [1.1.0] - 2026-07-02
 
 ### Added

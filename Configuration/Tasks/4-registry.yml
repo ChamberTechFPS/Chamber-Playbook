@@ -84,11 +84,12 @@ actions:
 
   - !status: {status: 'Applying NTFS and shutdown optimizations'}
 
-  - !registryValue:
-      path: 'HKLM\SYSTEM\CurrentControlSet\Control\FileSystem'
-      value: 'NtfsDisableLastAccessUpdate'
-      type: REG_DWORD
-      data: '1'
+  # fsutil (not a raw registry write) so NTFS is told immediately and the
+  # value is stamped user-managed (1), which Windows won't flip back to the
+  # system-managed default (2/3).
+  - !cmd:
+      command: 'fsutil behavior set disablelastaccess 1'
+      wait: true
 
   - !registryValue:
       path: 'HKLM\SYSTEM\CurrentControlSet\Control'
