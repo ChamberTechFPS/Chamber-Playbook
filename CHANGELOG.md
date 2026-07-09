@@ -3,6 +3,13 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [Unreleased]
+
+### Fixed
+- MMCSS `SystemResponsiveness` was set to `0`, which Windows clamps back up to `20` (per Microsoft's MMCSS docs, values below 10 are clamped to 20) — reserving 20% of CPU for background work, the opposite of the intent. Now set to `10`, the true minimum, for maximum foreground/gaming responsiveness.
+- MMCSS `NetworkThrottlingIndex` (0xFFFFFFFF, disables the ~10 packets/ms multimedia throttle) was written under `HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters`, where MMCSS never reads it, so it had no effect. Moved to `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile`.
+- Verification no longer reports a false failure for `NtfsDisableLastAccessUpdate` when Windows stamps the value system-managed (`0x80000001`) on large SSD volumes. Last-access updates are disabled in both the user-managed (`1`) and system-managed (`0x80000001`) states, so the verifier now compares only the enable/disable bit and ignores the Windows-owned system-managed flag.
+
 ## [1.1.1] - 2026-07-06
 
 ### Changed

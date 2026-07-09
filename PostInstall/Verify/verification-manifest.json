@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedUtc": "2026-07-09T01:22:45Z",
+  "generatedUtc": "2026-07-09T01:57:05Z",
   "registryValues": [
     {
       "source": "1-power.yml",
@@ -35,7 +35,7 @@
       "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
       "value": "SystemResponsiveness",
       "type": "REG_DWORD",
-      "data": "0"
+      "data": "10"
     },
     {
       "source": "4-registry.yml",
@@ -144,7 +144,7 @@
     },
     {
       "source": "4-registry.yml",
-      "path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
       "value": "NetworkThrottlingIndex",
       "type": "REG_DWORD",
       "data": "4294967295"

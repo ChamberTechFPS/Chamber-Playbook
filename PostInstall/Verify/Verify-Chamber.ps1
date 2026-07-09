@@ -89,6 +89,14 @@ if ($manifest) {
             $actual = [string]$item.($entry.value)
             if ($entry.type -match 'REG_DWORD|REG_QWORD') {
                 $match = ($actual -eq [string]([int64]$entry.data))
+                # NtfsDisableLastAccessUpdate is a bitmask: bit 0 = last-access
+                # disabled, bit 31 (0x80000000) = system-managed. Windows owns the
+                # managed bit and stamps large-volume SSDs system-managed (0x80000001)
+                # even after 'fsutil ... disablelastaccess 1'. Only the low bit is our
+                # goal, so compare that and ignore the managed flag.
+                if (-not $match -and $entry.value -eq 'NtfsDisableLastAccessUpdate') {
+                    $match = (([int64]$actual -band 1) -eq ([int64]$entry.data -band 1))
+                }
             } else {
                 $match = ($actual -eq [string]$entry.data)
             }

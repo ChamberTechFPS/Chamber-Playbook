@@ -2,11 +2,15 @@ title: Registry Tweaks
 actions:
   - !status: {status: 'Applying MMCSS gaming priority'}
 
+  # MMCSS reserves this % of CPU for low-priority background work. Microsoft's
+  # docs clamp any value below 10 back up to 20, so the common '0' tweak actually
+  # yields 20% reserved - the opposite of the goal. 10 is the true minimum and the
+  # best setting for foreground gaming.
   - !registryValue:
       path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
       value: 'SystemResponsiveness'
       type: REG_DWORD
-      data: '0'
+      data: '10'
 
   - !registryValue:
       path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
@@ -84,9 +88,11 @@ actions:
 
   - !status: {status: 'Applying NTFS and shutdown optimizations'}
 
-  # fsutil (not a raw registry write) so NTFS is told immediately and the
-  # value is stamped user-managed (1), which Windows won't flip back to the
-  # system-managed default (2/3).
+  # fsutil (not a raw registry write) so NTFS is told immediately. We ask for
+  # user-managed disabled (1), but Windows owns the system-managed bit
+  # (0x80000000) and stamps large-volume SSDs 0x80000001 (system-managed,
+  # last-access disabled) regardless. Either way last-access is off, which is
+  # the goal; the verifier compares only the low (disable) bit for this value.
   - !cmd:
       command: 'fsutil behavior set disablelastaccess 1'
       wait: true
@@ -117,8 +123,11 @@ actions:
 
   - !status: {status: 'Applying network latency optimizations'}
 
+  # NetworkThrottlingIndex is an MMCSS value: it lives under Multimedia\SystemProfile
+  # (next to SystemResponsiveness), NOT under Tcpip\Parameters where MMCSS never
+  # reads it. 0xFFFFFFFF disables the default ~10 packets/ms multimedia throttle.
   - !registryValue:
-      path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
       value: 'NetworkThrottlingIndex'
       type: REG_DWORD
       data: '4294967295'
