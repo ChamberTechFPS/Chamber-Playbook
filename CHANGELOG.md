@@ -3,7 +3,7 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
-## [Unreleased]
+## [1.2.1] - 2026-07-08
 
 ### Fixed
 - MMCSS `SystemResponsiveness` was set to `0`, which Windows clamps back up to `20` (per Microsoft's MMCSS docs, values below 10 are clamped to 20) — reserving 20% of CPU for background work, the opposite of the intent. Now set to `10`, the true minimum, for maximum foreground/gaming responsiveness.
