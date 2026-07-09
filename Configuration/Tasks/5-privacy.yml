@@ -50,6 +50,20 @@ actions:
       type: REG_DWORD
       data: '0'
 
+  - !status: {status: 'Disabling Windows Copilot via policy'}
+
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot'
+      value: 'TurnOffWindowsCopilot'
+      type: REG_DWORD
+      data: '1'
+
+  - !registryValue:
+      path: 'HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot'
+      value: 'TurnOffWindowsCopilot'
+      type: REG_DWORD
+      data: '1'
+
   - !status: {status: 'Blocking telemetry executables via IFEO'}
 
   - !registryValue:

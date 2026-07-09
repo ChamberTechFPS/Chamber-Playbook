@@ -1,11 +1,11 @@
 #Requires -Version 5.1
-Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
-
 param(
     [switch]$XboxOnly,
     [switch]$ListOnly
 )
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
 
 $StateDir = Join-Path $env:ProgramData 'ChamberPostInstall'
 $LogDir = Join-Path $StateDir 'logs'
@@ -48,7 +48,7 @@ $BalancedTargets = @(
     New-DebloatTarget -DisplayName 'Solitaire and casual games' -AppxNames @('Microsoft.MicrosoftSolitaireCollection')
     New-DebloatTarget -DisplayName 'Microsoft Teams consumer app' -AppxNames @('MSTeams', 'MicrosoftTeams', 'Microsoft.MicrosoftTeams')
     New-DebloatTarget -DisplayName 'Clipchamp' -AppxNames @('Clipchamp.Clipchamp')
-    New-DebloatTarget -DisplayName 'Microsoft Copilot app' -AppxNames @('Microsoft.Copilot')
+    New-DebloatTarget -DisplayName 'Microsoft Copilot app' -AppxNames @('Microsoft.Copilot', 'Microsoft.Windows.Ai.Copilot.Provider')
     New-DebloatTarget -DisplayName 'Widgets and web experience' -AppxNames @('MicrosoftWindows.Client.WebExperience', 'Microsoft.WidgetsPlatformRuntime')
     New-DebloatTarget -DisplayName 'Phone Link' -AppxNames @('Microsoft.YourPhone')
     New-DebloatTarget -DisplayName 'Bing and MSN apps' -AppxNames @('Microsoft.BingNews', 'Microsoft.BingWeather', 'Microsoft.BingSearch', 'Microsoft.BingFinance', 'Microsoft.BingSports')
@@ -61,6 +61,9 @@ $BalancedTargets = @(
     New-DebloatTarget -DisplayName 'Dev Home' -AppxNames @('Microsoft.Windows.DevHome', 'MicrosoftCorporationII.DevHome', 'Microsoft.DevHome')
     New-DebloatTarget -DisplayName 'LinkedIn and Skype' -AppxNames @('7EE7776C.LinkedInforWindows', 'Microsoft.LinkedIn', 'Microsoft.SkypeApp')
     New-DebloatTarget -DisplayName 'Cortana and Mixed Reality Portal' -AppxNames @('Microsoft.549981C3F5F10', 'Microsoft.MixedReality.Portal')
+    New-DebloatTarget -DisplayName 'Sticky Notes' -AppxNames @('Microsoft.MicrosoftStickyNotes')
+    New-DebloatTarget -DisplayName 'Alarms and Clock' -AppxNames @('Microsoft.WindowsAlarms')
+    New-DebloatTarget -DisplayName 'Quick Assist' -AppxNames @('MicrosoftCorporationII.QuickAssist')
 )
 
 $XboxTargets = @(
@@ -77,7 +80,6 @@ $PreservedByDefault = @(
     'Snipping Tool',
     'Photos',
     'Paint',
-    'Quick Assist',
     'Xbox and Game Pass apps unless Remove Xbox Services is selected'
 )
 
@@ -87,6 +89,7 @@ function Show-DebloatList {
     foreach ($target in $BalancedTargets) {
         Write-Host "  - $($target.DisplayName)" -ForegroundColor White
     }
+    Write-Host '  - OneDrive (win32 uninstall)' -ForegroundColor White
     Write-Host ''
     Write-Host 'Xbox removal targets, only if Remove Xbox Services is selected:' -ForegroundColor Cyan
     foreach ($target in $XboxTargets) {
@@ -150,6 +153,45 @@ function Remove-AppxTarget {
     }
 }
 
+function Remove-OneDrive {
+    # OneDrive is a win32 app, not an appx package, so it needs its uninstaller.
+    # Exit codes from the uninstallers are unreliable; success is judged by the
+    # per-user install disappearing.
+    $installedExe = Join-Path $env:LOCALAPPDATA 'Microsoft\OneDrive\OneDrive.exe'
+
+    Write-DebloatLog 'Target group: OneDrive'
+
+    if (-not (Test-Path -LiteralPath $installedExe)) {
+        Write-DebloatLog 'Not present: OneDrive'
+        return
+    }
+
+    Stop-Process -Name 'OneDrive' -Force -ErrorAction SilentlyContinue
+
+    $uninstallers = @(
+        (Join-Path $env:SystemRoot 'System32\OneDriveSetup.exe'),
+        (Join-Path $env:SystemRoot 'SysWOW64\OneDriveSetup.exe'),
+        $installedExe
+    )
+
+    foreach ($exe in $uninstallers) {
+        if (-not (Test-Path -LiteralPath $exe)) { continue }
+        try {
+            $proc = Start-Process -FilePath $exe -ArgumentList '/uninstall' -PassThru -Wait -ErrorAction Stop
+            Write-DebloatLog "Ran OneDrive uninstaller: $exe (exit $($proc.ExitCode))"
+        } catch {
+            Write-DebloatLog "OneDrive uninstaller failed at $exe`: $($_.Exception.Message)" -Level WARN
+            continue
+        }
+        if (-not (Test-Path -LiteralPath $installedExe)) {
+            Write-DebloatLog 'OneDrive removed.'
+            return
+        }
+    }
+
+    Write-DebloatLog 'OneDrive still installed after uninstall attempts.' -Level WARN
+}
+
 Initialize-DebloatLog
 
 if ($ListOnly) {
@@ -169,6 +211,10 @@ foreach ($target in $targets) {
     foreach ($name in $target.AppxNames) {
         Remove-AppxTarget -Name $name
     }
+}
+
+if (-not $XboxOnly) {
+    Remove-OneDrive
 }
 
 Write-DebloatLog "Finished Chamber $scopeLabel."

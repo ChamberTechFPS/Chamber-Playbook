@@ -101,10 +101,11 @@ Verification is read-only and checks **every tweak the playbook applies** — al
 
 The debloat phase removes both installed and provisioned copies of common consumer inbox apps where present:
 
-> Outlook/Mail, Solitaire, Teams, Clipchamp, Copilot, Widgets, Phone Link, Bing/MSN apps, Feedback Hub/Get Help/Tips, media apps, Family/People/To Do, Power Automate, Whiteboard, Maps, Office hub, Power BI, Spotify, Dev Home, LinkedIn, Skype, Cortana, and Mixed Reality Portal.
+> Outlook/Mail, Solitaire, Teams, Clipchamp, Copilot, Widgets, Phone Link, Bing/MSN apps, Feedback Hub/Get Help/Tips, media apps, Family/People/To Do, Power Automate, Whiteboard, Maps, Office hub, Power BI, Spotify, Dev Home, LinkedIn, Skype, Cortana, Mixed Reality Portal, Sticky Notes, Alarms & Clock, Quick Assist, and OneDrive (win32 uninstall).
 
+- **Copilot** is also disabled at the policy level (`TurnOffWindowsCopilot`) so it cannot return through Windows updates.
 - **Xbox** app, Game Pass app, overlays, and identity packages are removed **only** when *Remove Xbox Services* is selected in AME Wizard.
-- Chamber Playbook **preserves**: Microsoft Store, App Installer/winget, Windows Security, Calculator, Notepad, Snipping Tool, Photos, Paint, Quick Assist, and Xbox/Game Pass (unless Xbox removal is selected).
+- Chamber Playbook **preserves**: Microsoft Store, App Installer/winget, Windows Security, Calculator, Notepad, Snipping Tool, Photos, Paint, and Xbox/Game Pass (unless Xbox removal is selected).
 
 Removed apps can be reinstalled at any time from the Microsoft Store, which Chamber Playbook preserves.
 

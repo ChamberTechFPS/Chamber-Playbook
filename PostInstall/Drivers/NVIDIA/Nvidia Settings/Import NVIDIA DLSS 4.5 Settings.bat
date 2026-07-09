@@ -1,0 +1,1 @@
+nvidiaProfileInspector.exe "DLSS 4.5 Profile.nip"

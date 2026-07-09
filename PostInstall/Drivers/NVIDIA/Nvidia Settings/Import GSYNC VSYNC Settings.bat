@@ -1,0 +1,1 @@
+nvidiaProfileInspector.exe "GSYNC VSYNC Profile.nip"

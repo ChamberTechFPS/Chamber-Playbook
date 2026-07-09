@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedUtc": "2026-07-07T02:30:47Z",
+  "generatedUtc": "2026-07-09T01:22:45Z",
   "registryValues": [
     {
       "source": "1-power.yml",
@@ -315,6 +315,20 @@
       "value": "PublishUserActivities",
       "type": "REG_DWORD",
       "data": "0"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+      "value": "TurnOffWindowsCopilot",
+      "type": "REG_DWORD",
+      "data": "1"
+    },
+    {
+      "source": "5-privacy.yml",
+      "path": "HKCU\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+      "value": "TurnOffWindowsCopilot",
+      "type": "REG_DWORD",
+      "data": "1"
     },
     {
       "source": "5-privacy.yml",
@@ -731,6 +745,7 @@
       "Microsoft.MicrosoftTeams",
       "Clipchamp.Clipchamp",
       "Microsoft.Copilot",
+      "Microsoft.Windows.Ai.Copilot.Provider",
       "MicrosoftWindows.Client.WebExperience",
       "Microsoft.WidgetsPlatformRuntime",
       "Microsoft.YourPhone",
@@ -761,7 +776,10 @@
       "Microsoft.LinkedIn",
       "Microsoft.SkypeApp",
       "Microsoft.549981C3F5F10",
-      "Microsoft.MixedReality.Portal"
+      "Microsoft.MixedReality.Portal",
+      "Microsoft.MicrosoftStickyNotes",
+      "Microsoft.WindowsAlarms",
+      "MicrosoftCorporationII.QuickAssist"
     ],
     "xbox": [
       "Microsoft.GamingApp",

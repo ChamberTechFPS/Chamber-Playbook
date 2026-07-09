@@ -9,15 +9,15 @@ files.zip
 Executables/DirectX/
 Executables/vcredist_all.exe
 
-# Driver/tool downloads users drop into PostInstall locally - not part of the repo
+# Driver/tool downloads users drop into PostInstall locally - not part of the repo.
+# Web shortcuts (.url), NVIDIA profiles, and the profile inspector ARE part of the
+# playbook and must ship in the .apbx, so they are tracked.
 PostInstall/Drivers/**/*.exe
+!PostInstall/Drivers/NVIDIA/Nvidia Settings/nvidiaProfileInspector.exe
 PostInstall/Drivers/**/*.msi
 PostInstall/Drivers/**/*.zip
-PostInstall/Drivers/**/*.url
-PostInstall/Drivers/NVIDIA/Nvidia/
 PostInstall/tools/*.exe
 PostInstall/tools/*.zip
-PostInstall/tools/*.url
 
 # Local Claude Code settings - not part of the playbook
 .claude/
