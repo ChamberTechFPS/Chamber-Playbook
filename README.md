@@ -1,10 +1,20 @@
 # Chamber Playbook
 
+## 📺 Video Tutorial — How to Install
+
+**New here? Watch the full installation walkthrough:** [**▶️ Chamber Playbook Install Tutorial**](https://youtu.be/jzM9MHyzCiI)
+
+This video walks you through downloading the playbook, setting up AME Wizard, and running Chamber start to finish. Follow along with the [Installation](#installation) steps below.
+
+---
+
 **One-click competitive gaming optimization for Windows 11.**
 
 Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns a fresh Windows 11 install into a competition-ready gaming machine. It applies performance tweaks, strips out bloatware, locks down telemetry, and configures the system the way competitive players actually want it — all in one guided pass.
 
 > ⚠️ **Anti-cheat safe:** Chamber Playbook keeps **Secure Boot ON** and is compatible with Vanguard, Easy Anti-Cheat, and BattlEye. See [Anti-Cheat Compatibility](#anti-cheat-compatibility).
+
+> 🖥️ **Want it done for you?** ChamberTech offers a professional **PC optimization service** — head to [**chambertech.net**](https://chambertech.net) to get your system tuned by hand.
 
 ---
 
@@ -18,6 +28,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 - [Windows App Removal (Debloat)](#windows-app-removal-debloat)
 - [Anti-Cheat Compatibility](#anti-cheat-compatibility)
 - [Transparency & Verifying Downloads](#transparency--verifying-downloads)
+- [Community & Support](#community--support)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -136,6 +147,13 @@ Removed apps can be reinstalled at any time from the Microsoft Store, which Cham
 
 Chamber Playbook makes significant changes to Windows. Use it on a **fresh install** and at your own risk. Always understand what a tweak does before applying it to a system you depend on.
 
+## Community & Support
+
+- 💬 **Join the community** — hop into the Chamber Discord to ask questions, share results, and get help: [**discord.gg/TG4djSaZ2w**](https://discord.gg/TG4djSaZ2w)
+- ⭐ **Support what I'm doing** — back the project to help keep it free and unlock **exclusive access** in the Discord: [**Support & Exclusive Access**](https://discord.com/servers/chambertech-758350757451399191)
+
+---
+
 ## License
 
 Chamber Playbook is licensed under [CC BY-NC-SA 4.0](LICENSE) — free to use, share, and adapt with attribution; commercial redistribution requires permission from ChamberTech LLC.
@@ -143,4 +161,4 @@ Chamber Playbook is licensed under [CC BY-NC-SA 4.0](LICENSE) — free to use, s
 ---
 
 **Chamber Playbook — built for competitors.**
-Part of the [ChamberTech](https://x.com/ChamberTech_) ecosystem · [YouTube](https://youtube.com/@ChamberTech) · Discord early access
+Part of the [ChamberTech](https://x.com/ChamberTech_) ecosystem · [YouTube](https://youtube.com/@ChamberTech) · [Discord](https://discord.gg/TG4djSaZ2w)
