@@ -3,6 +3,20 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [1.2.2] - 2026-08-04
+
+### Removed
+- `bcdedit /set useplatformtick yes` and `bcdedit /set disabledynamictick yes` from the Boot Performance phase (`Configuration/Tasks/2-bcd.yml`). Together these force Windows onto a fixed periodic timer tick instead of letting the kernel use the tickless/dynamic-tick path, which adds timer interrupt overhead on modern hardware without giving games any timer resolution they don't already get by default. The rest of phase 2 (`tscsyncpolicy Enhanced`, `bootux disabled`, `timeout 0`) is unchanged.
+- Verification no longer checks these two BCD flags — `verification-manifest.json` was regenerated from the playbook source, so phase 2 now reports 2 BCD flags instead of 4.
+
+### Upgrade notes
+- This release only stops *setting* the flags; it does not undo them. On a machine already provisioned by v1.2.1 or earlier, clear them from an elevated Command Prompt and reboot:
+
+  ```
+  bcdedit /deletevalue useplatformtick
+  bcdedit /deletevalue disabledynamictick
+  ```
+
 ## [1.2.1] - 2026-07-08
 
 ### Fixed

@@ -35,7 +35,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 
 ## Features
 
-- 🚀 **Performance-first** — Ultimate Performance power plan, timer/BCD tuning, service trimming, and registry latency tweaks
+- 🚀 **Performance-first** — Ultimate Performance power plan, BCD boot tuning, service trimming, and registry latency tweaks
 - 🧹 **Balanced debloat** — removes consumer inbox apps while preserving the Store, winget, and Windows Security
 - 🔒 **Privacy hardening** — blocks telemetry at the registry, firewall, and hosts level
 - 🎮 **Competitor-focused UI** — dark mode, clean taskbar, classic context menu, file extensions on
@@ -77,7 +77,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 | #  | Phase      | Description                                                                          |
 | --- | ---------- | ------------------------------------------------------------------------------------ |
 | 1  | Power Plan | Ultimate Performance plan; disables all sleep/hibernate                              |
-| 2  | BCD Tweaks | Timer precision, fast boot, TSC sync                                                 |
+| 2  | BCD Tweaks | TSC sync policy, boot animation off, zero boot-menu timeout                          |
 | 3  | Services   | Disables 15+ background services (telemetry, indexing, etc.)                         |
 | 4  | Registry   | MMCSS priority, mouse accel off, memory mgmt, network TCP                            |
 | 5  | Privacy    | Blocks telemetry at registry + firewall + hosts level                                |

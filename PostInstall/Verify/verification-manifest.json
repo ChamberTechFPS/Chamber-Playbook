@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedUtc": "2026-07-09T01:57:05Z",
+  "generatedUtc": "2026-08-04T20:46:49Z",
   "registryValues": [
     {
       "source": "1-power.yml",
@@ -700,18 +700,6 @@
   ],
   "bcd": {
     "flags": [
-      {
-        "source": "2-bcd.yml",
-        "flag": "useplatformtick",
-        "expected": "yes",
-        "tolerant": true
-      },
-      {
-        "source": "2-bcd.yml",
-        "flag": "disabledynamictick",
-        "expected": "yes",
-        "tolerant": true
-      },
       {
         "source": "2-bcd.yml",
         "flag": "tscsyncpolicy",
