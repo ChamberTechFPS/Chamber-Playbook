@@ -188,7 +188,7 @@ actions:
       type: REG_DWORD
       data: '1'
 
-  - !status: {status: 'Disabling Game Bar / DVR'}
+  - !status: {status: 'Disabling Game Bar overlay / DVR recording'}
 
   - !registryValue:
       path: 'HKCU\System\GameConfigStore'
@@ -218,16 +218,22 @@ actions:
       data: '0'
       option: 'disable-gamebar'
 
+  - !status: {status: 'Enforcing Windows Game Mode enabled'}
+
+  # Game Mode is non-negotiable: these two values are deliberately NOT gated by
+  # an option, and they are written after the Game Bar block so that selecting
+  # 'disable-gamebar' can turn off the overlay and DVR recording without ever
+  # taking Game Mode with it. Auto Game Mode drives windowed-game latency
+  # optimizations and Auto HDR, and on AMD multi-CCD parts it helps Windows keep
+  # game threads on the preferred CCD. Do not add an `option:` to these.
   - !registryValue:
       path: 'HKCU\SOFTWARE\Microsoft\GameBar'
       value: 'AllowAutoGameMode'
       type: REG_DWORD
-      data: '0'
-      option: 'disable-gamebar'
+      data: '1'
 
   - !registryValue:
       path: 'HKCU\SOFTWARE\Microsoft\GameBar'
       value: 'AutoGameModeEnabled'
       type: REG_DWORD
-      data: '0'
-      option: 'disable-gamebar'
+      data: '1'

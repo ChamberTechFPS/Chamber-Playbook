@@ -79,7 +79,7 @@ Chamber Playbook is an [AME Wizard](https://ameliorated.io) playbook that turns 
 | 1  | Power Plan | Ultimate Performance plan; disables all sleep/hibernate                              |
 | 2  | BCD Tweaks | TSC sync policy, boot animation off, zero boot-menu timeout                          |
 | 3  | Services   | Disables 15+ background services (telemetry, indexing, etc.)                         |
-| 4  | Registry   | MMCSS priority, mouse accel off, memory mgmt, network TCP                            |
+| 4  | Registry   | MMCSS priority, Game Mode enforced on, mouse accel off, memory mgmt, network TCP     |
 | 5  | Privacy    | Blocks telemetry at registry + firewall + hosts level                                |
 | 6  | Debloat    | Removes balanced inbox bloat (installed + provisioned AppX)                          |
 | 7  | Security   | VBS/HVCI off, Smart App Control off, optional Defender/Update                        |

@@ -3,6 +3,16 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [1.2.3] - 2026-08-04
+
+### Changed
+- **Windows Game Mode is now enforced on, unconditionally.** `AllowAutoGameMode` and `AutoGameModeEnabled` are written as `1` with no `option:` gate, and they are written *after* the Game Bar block so no feature-page selection can turn Game Mode back off. Previously the `disable-gamebar` checkbox — which ships **checked by default** — set both to `0`, silently disabling Game Mode on every install that accepted the defaults.
+- `disable-gamebar` now does only what its name says: disables the Xbox Game Bar overlay and background DVR recording. Game Mode is no longer bundled into it.
+- Dropped the "Not Recommended on Dual CCD CPUs" warning from the `disable-gamebar` label. That caveat existed only because the option used to disable Auto Game Mode; with Game Mode always on, the overlay/DVR toggle is safe on every CPU.
+
+### Added
+- Verification hard-fails when Game Mode is off. Since the two values carry no `option:`, `Verify-Chamber.ps1` reports them as `FAIL` rather than an informational optional-skip, so drift gets caught by the post-install check.
+
 ## [1.2.2] - 2026-08-04
 
 ### Removed

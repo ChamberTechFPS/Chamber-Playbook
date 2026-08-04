@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedUtc": "2026-08-04T20:46:49Z",
+  "generatedUtc": "2026-08-04T23:45:43Z",
   "registryValues": [
     {
       "source": "1-power.yml",
@@ -249,16 +249,14 @@
       "path": "HKCU\\SOFTWARE\\Microsoft\\GameBar",
       "value": "AllowAutoGameMode",
       "type": "REG_DWORD",
-      "data": "0",
-      "option": "disable-gamebar"
+      "data": "1"
     },
     {
       "source": "4-registry.yml",
       "path": "HKCU\\SOFTWARE\\Microsoft\\GameBar",
       "value": "AutoGameModeEnabled",
       "type": "REG_DWORD",
-      "data": "0",
-      "option": "disable-gamebar"
+      "data": "1"
     },
     {
       "source": "5-privacy.yml",
