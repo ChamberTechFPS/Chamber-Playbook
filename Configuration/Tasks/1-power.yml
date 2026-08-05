@@ -10,18 +10,9 @@ actions:
       command: 'powercfg /setactive 11111111-1111-1111-1111-111111111111'
       wait: true
 
-  - !cmd:
-      command: 'powercfg /delete 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c'
-      wait: true
-
-  - !cmd:
-      command: 'powercfg /delete 381b4222-f694-41f0-9685-ff5bb260df2e'
-      wait: true
-
-  - !cmd:
-      command: 'powercfg /delete a1841308-3541-4fab-bc81-f71556f20b4a'
-      wait: true
-
+  # The stock Balanced / High Performance / Power Saver schemes are deliberately
+  # left in place. They are inactive and cost nothing, and keeping them means a
+  # user can fall back or A/B against Balanced without powercfg -restoredefaultschemes.
   - !cmd:
       command: 'powercfg -h off'
       wait: true

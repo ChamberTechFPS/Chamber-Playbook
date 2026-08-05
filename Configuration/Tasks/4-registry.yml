@@ -12,18 +12,9 @@ actions:
       type: REG_DWORD
       data: '10'
 
-  - !registryValue:
-      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
-      value: 'GPU Priority'
-      type: REG_DWORD
-      data: '8'
-
-  - !registryValue:
-      path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
-      value: 'Priority'
-      type: REG_DWORD
-      data: '6'
-
+  # 'GPU Priority' (8) and 'Priority' (6) are not written here: both are already
+  # the Windows defaults for the MMCSS Games task, so setting them changed nothing
+  # and only inflated the tweak count the verifier reports.
   - !registryValue:
       path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
       value: 'Scheduling Category'

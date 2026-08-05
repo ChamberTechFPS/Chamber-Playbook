@@ -3,6 +3,25 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [1.2.4] - 2026-08-04
+
+Housekeeping release. Every change is performance-neutral by construction, so v1.2.4 can serve as a frozen build for benchmarking against stock Windows — see [docs/BENCHMARKING.md](docs/BENCHMARKING.md).
+
+### Changed
+- The stock **Balanced**, **High Performance**, and **Power Saver** power schemes are no longer deleted. Chamber's Ultimate Performance duplicate is still created and set active — the only difference is that the stock schemes survive, so a user can fall back or A/B against Balanced without `powercfg -restoredefaultschemes`. Deleted schemes were inactive and cost nothing; removing them only took away the user's escape hatch.
+
+### Removed
+- MMCSS `Games\GPU Priority` (`8`) and `Games\Priority` (`6`) are no longer written. Both are already the Windows defaults for the Games task, so these writes changed no system state — they only inflated the tweak count reported by verification. Registry values drop from 82 to 80.
+
+### Upgrade notes
+- This release stops *deleting* the stock power schemes; it does not restore ones already deleted. On a machine provisioned by v1.2.3 or earlier, run this from an elevated prompt to get them back:
+
+  ```
+  powercfg -restoredefaultschemes
+  ```
+
+  Note that this also resets the active plan, so re-select Chamber's Ultimate Performance afterward if you want it.
+
 ## [1.2.3] - 2026-08-04
 
 ### Changed

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedUtc": "2026-08-04T23:45:43Z",
+  "generatedUtc": "2026-08-05T21:34:31Z",
   "registryValues": [
     {
       "source": "1-power.yml",
@@ -36,20 +36,6 @@
       "value": "SystemResponsiveness",
       "type": "REG_DWORD",
       "data": "10"
-    },
-    {
-      "source": "4-registry.yml",
-      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
-      "value": "GPU Priority",
-      "type": "REG_DWORD",
-      "data": "8"
-    },
-    {
-      "source": "4-registry.yml",
-      "path": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
-      "value": "Priority",
-      "type": "REG_DWORD",
-      "data": "6"
     },
     {
       "source": "4-registry.yml",
