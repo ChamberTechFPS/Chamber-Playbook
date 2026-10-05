@@ -3,6 +3,20 @@
 All notable changes to Chamber Playbook are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com); versions follow [SemVer](https://semver.org).
 
+## [1.2.6] - 2026-10-05
+
+This release is about which Windows versions Chamber runs on, and how you get onto it. It does not change a single tweak, so performance is the same as 1.2.4. I did not measure anything new here.
+
+### Added
+- **Windows 11 26H2 (build 26300) is supported.** Nothing in Chamber depends on the build, so I expect it to work. I have not run it on a fresh 26300 install yet, so treat 26H2 as untested until I say otherwise.
+- **You can upgrade in place.** Run 1.2.6 over any earlier Chamber version and AME applies it on top. You do not need a fresh install. An upgrade re-runs every phase.
+
+### Removed
+- **Windows 11 22H2 and 23H2 (builds 22621 and 22631) are no longer supported.** Chamber now needs 24H2 or newer. If you are on 22H2 or 23H2, update Windows first. Windows 10 was never supported.
+
+### Upgrade notes
+- Upgrading re-applies the playbook. It does not undo anything an older version set that a newer one stopped setting. The fixes for those are in the 1.2.4 and 1.2.3 notes below.
+
 ## [1.2.4] - 2026-08-04
 
 Housekeeping release. Every change is performance-neutral by construction, so v1.2.4 can serve as a frozen build for benchmarking against stock Windows — see [docs/BENCHMARKING.md](docs/BENCHMARKING.md).

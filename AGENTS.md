@@ -13,7 +13,7 @@ YAML uses two-space indentation and one action per block. Keep status labels sho
 No automated test suite is checked in. Validate changes in an isolated VM or sacrificial fresh Windows 11 install. For task YAML, test only affected phase first, then full playbook run. For PowerShell, run elevated and verify both success path and skip/fallback path. Changes under `10-finalize.yml` must be tested with and without internet, `winget`, and optional `Executables/DirectX` or `vcredist_all.exe` payloads.
 
 ## Commit & Pull Request Guidelines
-Local workspace has no `.git` metadata, so no commit history is available to mirror. Use short imperative subjects like `Add winget connectivity warning` or `Split OLED safety script`. PRs should list touched phases/scripts, Windows version tested (`22H2`, `23H2`, or `24H2`), VM vs. bare-metal coverage, and any user-visible menu or installer changes. Include rollback notes for registry, BCD, service, privacy, or security edits.
+Local workspace has no `.git` metadata, so no commit history is available to mirror. Use short imperative subjects like `Add winget connectivity warning` or `Split OLED safety script`. PRs should list touched phases/scripts, Windows version tested (`24H2`, `25H2`, or `26H2`), VM vs. bare-metal coverage, and any user-visible menu or installer changes. Include rollback notes for registry, BCD, service, privacy, or security edits.
 
 ## Safety & Configuration Notes
 This repository changes boot settings, services, registry, telemetry blocks, and optional security features. Test on non-production machines first. Do not add third-party installers to source control unless redistribution is allowed; place them in `Executables/` only for packaging and local release builds.
