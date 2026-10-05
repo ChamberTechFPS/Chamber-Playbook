@@ -10,6 +10,7 @@ This release is about which Windows versions Chamber runs on, and how you get on
 ### Added
 - **Windows 11 26H2 (build 26300) is supported.** Nothing in Chamber depends on the build, so I expect it to work. I have not run it on a fresh 26300 install yet, so treat 26H2 as untested until I say otherwise.
 - **You can upgrade in place.** Run 1.2.6 over any earlier Chamber version and AME applies it on top. You do not need a fresh install. An upgrade re-runs every phase.
+- **Update checks and a source code link.** `playbook.conf` now points at this repository, so AME can tell you when a new version is out and link you to the source.
 
 ### Removed
 - **Windows 11 22H2 and 23H2 (builds 22621 and 22631) are no longer supported.** Chamber now needs 24H2 or newer. If you are on 22H2 or 23H2, update Windows first. Windows 10 was never supported.
